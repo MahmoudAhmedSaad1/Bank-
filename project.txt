@@ -1,0 +1,256 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+class Client
+{
+private:
+    string name;
+    int id;
+    string password;
+    double balance;
+public:
+    Client()
+    {
+        name ="\0";
+        id = 0;
+        password = "\0";
+        balance = 0;
+    }
+    Client(string n,string p,int i,double b)
+    {
+        name = n;
+        id = i;
+        password = p;
+        balance = b;
+    }
+    void set_name(string n)
+    {   if (name.length()>=5 && name.length()<=20) name = n;
+        else cout<<"Enter A valid Name";
+    }
+    void set_id(int i){
+        id = i;
+    }
+    void set_password (string p)
+    {
+        if (p.length()>=8 && p.length()<=20) password = p;
+        else cout<<"Enter A valid Password";
+
+    }
+    void set_balance(double b)
+    {   if (b >=1500 ) balance = b;
+        else cout<<"Enter A valid Balance";
+
+    }
+    string get_name()
+    {
+        return name;
+    }
+    string get_password()
+    {
+        return password;
+    }
+    int get_id()
+    {
+        return id;
+    }
+
+    double get_balance(){
+        return balance;
+    }
+
+    void deposite (double amount)
+    {
+        double money,years,rate,sum;
+
+        cout<<"Enter the Money"<<endl;
+        cin>>money;
+        cout<<"Enter the Years"<<endl;
+        cin>>years;
+        cout<<"Enter the Rate"<<endl;
+        cin>>rate;
+
+        sum=money*pow((1+rate),years);
+        cout<<"Th total ="<<"\t"<<sum<<endl;
+
+    }
+
+    void withdraw(double amount)
+    {
+        double a , avai_balance;
+        cout << "Enter amount to withdraw\n";
+        cin >> a;
+        avai_balance = amount - a;
+        cout << "Available Balance is" << avai_balance;
+    }
+    void checkBalance()
+    {
+        cout<<"Your Balance is\n"<<get_balance();
+    }
+
+    void Display_Client()
+    {
+        cout<<"Name:\t"<<get_name()<<endl;
+        cout<<"ID:\t"<<get_id()<<endl;
+        cout<<"Your Balance:\t"<<get_balance()<<endl;
+    }
+    void transferBalance(double a, string c)
+    {
+
+        if (balance > a)
+        {
+            if (name == c)
+            {
+                balance -= a;
+                cout<<"Transfer Complete\n";
+
+            }
+            else
+            {
+                cout<< "The client Name doesn't Correct\n";
+            }
+
+        }
+        else
+        {
+            cout<<endl
+                <<"Sorry! Transfer failed! Reason: Insufficient Balance."
+                <<endl;
+        }
+
+
+    };
+};
+class Employee
+{
+private:
+    string name;
+    int id;
+    string password;
+    double balance;
+public:
+    Employee()
+    {
+        name ="\0";
+        id = 0;
+        password ="\0";
+        balance = 0;
+    }
+    Employee (string n,string p,int i,double b)
+    {
+        name = n;
+        id = i;
+        password = p;
+        balance = b;
+    }
+    void set_name(string n)
+    {   if (n.length()>=5 && n.length()<=20) name = n;
+        else cout<<"Enter A valid Name";
+    }
+    void set_id(int i)
+    {
+        id = i;
+    }
+    void set_password (string p)
+    {
+        if (p.length()>=8 && p.length()<=20) password = p;
+        else cout<<"Enter A valid Password";
+
+    }
+    void set_balance(double b)
+    {   if (b >=5000 ) balance = b;
+        else cout<<"Enter A valid Balance";
+
+    }
+    string get_name()
+    {
+        return name;
+    }
+    string get_password()
+    {
+        return password;
+    }
+    int get_id()
+    {
+        return id;
+    }
+    double get_balance()
+    {
+        return balance;
+    }
+    void Display_Employee()
+    {
+        cout<<" Employee Name:\t"<<get_name()<<endl;
+        cout<<"Employee ID:\t"<<get_id()<<endl;
+        cout<<"Employee Balance:\t"<<get_balance()<<endl;
+    }
+};
+class Admin
+{
+private:
+    string name;
+    int id;
+    string password;
+    double balance;
+public:
+    Admin()
+    {
+        name = "\0";
+        id = 0;
+        password = "\0";
+        balance = 0;
+    }
+    Admin(string n,string p,int i,double b)
+    {
+        name = n;
+        id = i;
+        password = p;
+        balance = b;
+    }
+    void set_name (string n)
+    {   if (n.length()>=5 && n.length()<=20) name = n;
+        else cout<<"Enter A valid Name";
+    }
+    void set_id(int i)
+    {
+        id = i;
+    }
+    void set_password (string p)
+    {
+        if (p.length()>=8 && p.length()<=20) password = p;
+        else cout<<"Enter A valid Password";
+
+    }
+    void set_balance(double b)
+    {   if (b >=5000 ) balance = b;
+        else cout<<"Enter A valid Balance";
+
+    }
+    string get_name()
+    {
+        return name;
+    }
+    string get_password()
+    {
+        return password;
+    }
+    int get_id()
+    {
+        return id;
+    }
+    double get_balance()
+    {
+        return balance;
+    }
+    void Display_Admin()
+    {
+        cout<<" Admin Name:\t"<<get_name()<<endl;
+        cout<<"Admin ID:\t"<<get_id()<<endl;
+        cout<<"Admin Balance:\t"<<get_balance()<<endl;
+    }
+};
+int main()
+{
+
+    return 0;
+}
